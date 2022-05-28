@@ -1,0 +1,84 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+.container{
+    width: 50vw;
+    height: 80vh;
+    background-color: black;
+    border-radius: 5%;
+}
+.heading{
+    width: 50vw;
+    height: 10vh;
+    background-color: black;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.heading h1{
+    color: rgb(247, 116, 2);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    word-spacing: 6px;
+    letter-spacing: 3px;
+    font-size: 2.3rem;
+}
+.container form{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    height: 90%;
+    box-sizing: border-box;
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 2rem;
+    border: 2px solid white;
+
+}
+.color-class{
+    color: white;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.title-container, .description-container, .date-container{
+    display: flex;
+    flex-direction: column;
+}
+input, textarea{
+    width: 70%;
+    font-size: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 4px;
+}
+input{
+    height: 1.5rem;
+}
+.submit-btn button{
+    width: 8rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-family: cursive;
+    font-weight:600 ;
+    background-color: rgb(247, 116, 2);
+    color: white;
+    border-radius:8px ;
+}
+
