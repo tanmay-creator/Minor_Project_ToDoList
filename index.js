@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require('path');
+const db = require('./config/mongoose');
+const Task = require('./models/ToDoTask');
+
 const app = express();
 const PORT = 3000;
 
@@ -20,7 +23,16 @@ app.get('/', function(req,res){
 
 //route for save task
 app.post('/save-task', function(req,res){
-    console.log(req.body);
+
+    Task.create({
+        title:req.body.title,
+        description: req.body.description,
+        endDate: req.body.date
+    }, (err, newTask)=>{
+        if(err){
+            return console.log(err);
+        }
+    })
 })
 app.listen(PORT, function(err){
     if(err){
