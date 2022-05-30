@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
+    <!-- Heading Div -->
     <div class="heading">
         <h1>To Do List App</h1>
     </div>
+
+    <!-- Main Container -->
     <div class="container">
+        <!-- Submit Info Form -->
         <form action="/save-task"  method="post">
             <div class="input-container">
                 <div class="title-container">
@@ -33,96 +37,24 @@
                 <button type="submit">Add Task</button>
             </div>
         </form>
-
+        <!-- Show Task Container -->
         <div class="task-container">
+            <% for(let i=0; i<allTask.length; i++){ %>
             <div class="task">
                 <div class="title-box">
-                    <h2>Title</h2>
+                    <h2><%=allTask[i].title %></h2>
                 </div>
                 <div class="desc-box">
-                    <p>this is sample paragraph</p>
+                    <p><%=allTask[i].description %></p>
                 </div>
                 <div class="date-box">
-                    <h3>29/29/2020</h3>
+                    <h3><%=allTask[i].endDate %></h3>
                 </div>
                 <div class="delete-box">
-                    <i class="fa-solid fa-trash"></i>
+                   <a href="/delete-task/?id=<%=allTask[i]._id%>"><i class="fa-solid fa-trash"></i></a>
                 </div>
             </div>
-            <div class="task">
-                <div class="title-box">
-                    <h2>Title</h2>
-                </div>
-                <div class="desc-box">
-                    <p>this is sample paragraph</p>
-                </div>
-                <div class="date-box">
-                    <h3>29/29/2020</h3>
-                </div>
-                <div class="delete-box">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-
-            <div class="task">
-                <div class="title-box">
-                    <h2>Title</h2>
-                </div>
-                <div class="desc-box">
-                    <p>this is sample paragraph</p>
-                </div>
-                <div class="date-box">
-                    <h3>29/29/2020</h3>
-                </div>
-                <div class="delete-box">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-
-            <div class="task">
-                <div class="title-box">
-                    <h2>Title</h2>
-                </div>
-                <div class="desc-box">
-                    <p>this is sample paragraph</p>
-                </div>
-                <div class="date-box">
-                    <h3>29/29/2020</h3>
-                </div>
-                <div class="delete-box">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-
-            <div class="task">
-                <div class="title-box">
-                    <h2>Title</h2>
-                </div>
-                <div class="desc-box">
-                    <p>this is sample paragraph</p>
-                </div>
-                <div class="date-box">
-                    <h3>29/29/2020</h3>
-                </div>
-                <div class="delete-box">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
-
-            <div class="task">
-                <div class="title-box">
-                    <h2>Title</h2>
-                </div>
-                <div class="desc-box">
-                    <p>this is sample paragraph</p>
-                </div>
-                <div class="date-box">
-                    <h3>29/29/2020</h3>
-                </div>
-                <div class="delete-box">
-                    <i class="fa-solid fa-trash"></i>
-                </div>
-            </div>
+            <% } %>
         </div>
     </div>
 

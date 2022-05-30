@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// database schema for storing data.
 const taskSchema = new  mongoose.Schema({
     title: {
         type:String,

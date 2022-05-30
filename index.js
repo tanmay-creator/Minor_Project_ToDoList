@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const db = require('./config/mongoose');
 const Task = require('./models/ToDoTask');
+const alert  = require('alert');
 
 const app = express();
 const PORT = 3000;
@@ -18,12 +19,23 @@ app.use(express.static('./assets'))
 
 //route for home
 app.get('/', function(req,res){
-    return res.render('home');
+    
+    //fetching all the data from database then render to home.ejs
+    Task.find({},(err,allTasks)=>{
+        if(err)
+        {
+            return console.log("err occured");
+        }
+
+        return res.render('home', {allTask:allTasks});
+    })
+    
 })
 
 //route for save task
 app.post('/save-task', function(req,res){
 
+    //get the required data from UI and save it to database
     Task.create({
         title:req.body.title,
         description: req.body.description,
@@ -32,6 +44,19 @@ app.post('/save-task', function(req,res){
         if(err){
             return console.log(err);
         }
+    })
+    return res.redirect('back');
+})
+
+//route for delete task
+app.get('/delete-task', function(req,res){
+    //get the required id then search for this id in database then delete
+    Task.remove({_id:req.query.id}, (err, deletedTask)=>{
+        if(err){
+            return console.log("error in deleting");
+        }
+
+        res.redirect('/')
     })
 })
 app.listen(PORT, function(err){

@@ -1,5 +1,7 @@
+//requireing mongoose 
 const mongoose = require('mongoose');
 
+//connect to database
 mongoose.connect('mongodb://localhost/toDoList_development');
 
 const db = mongoose.connection;
